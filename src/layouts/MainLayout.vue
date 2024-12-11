@@ -6,8 +6,8 @@
           不知名系统
         </div>
         <div class="user-info">
-          <el-avatar 
-            :size="40" 
+          <el-avatar
+            :size="40"
             :src="userStore.userInfo?.avatar || '/default-avatar.png'"
           />
           <span class="username">{{ userStore.userInfo?.username }}</span>
@@ -27,8 +27,8 @@
 
     <el-container>
       <el-aside width="200px">
-        <el-menu 
-          router 
+        <el-menu
+          router
           :default-active="route.path"
           class="side-menu"
         >
@@ -40,15 +40,21 @@
             <el-icon><User /></el-icon>
             <span>用户管理</span>
           </el-menu-item>
-          <el-menu-item v-if="userStore.isAdmin" index="/tasks">
-            <el-icon><Cpu /></el-icon>
-            <span>任务管理</span>
-          </el-menu-item>
           <el-menu-item index="/events">
             <el-icon><Calendar /></el-icon>
             <span>事件管理</span>
           </el-menu-item>
-       
+
+          <el-sub-menu index="/">
+            <template #title>
+              <el-icon><KnifeFork /></el-icon>
+              <span>菜式管理</span>
+            </template>
+            <el-menu-item index="/food">菜式列表</el-menu-item>
+            <el-menu-item index="/cate">分类列表</el-menu-item>
+            <el-menu-item index="/ingredient">食材列表</el-menu-item>
+          </el-sub-menu>
+
         </el-menu>
       </el-aside>
       <el-main>
@@ -61,7 +67,7 @@
 <script setup>
 import { useUserStore } from '@/stores/user'
 import { useRouter, useRoute } from 'vue-router'
-import { HomeFilled, Calendar, User, ArrowDown, Cpu } from '@element-plus/icons-vue'
+import { HomeFilled, Calendar, User, ArrowDown, Cpu, KnifeFork } from '@element-plus/icons-vue'
 
 const userStore = useUserStore()
 const router = useRouter()

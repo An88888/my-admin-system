@@ -33,7 +33,42 @@ const routes = [
         component: () => import('@/views/Tasks.vue'),
         meta: { requiresAdmin: true }
 
-      }
+      },
+      {
+        path: 'food',
+        name: 'Food',
+        component: () => import('@/views/Food.vue'),
+        meta: { requiresAdmin: true }
+
+      },
+      {
+        path: 'cate',
+        name: 'Cate',
+        component: () => import('@/views/Cate.vue'),
+        meta: { requiresAdmin: true }
+
+      },
+      {
+        path: 'ingredient',
+        name: 'Ingredient',
+        component: () => import('@/views/Ingredient.vue'),
+        meta: { requiresAdmin: true }
+
+      },
+      {
+        path: 'crontab',
+        name: 'Crontab',
+        component: () => import('@/views/Crontab.vue'),
+        meta: { requiresAdmin: true }
+
+      },
+      {
+        path: 'interval',
+        name: 'Interval',
+        component: () => import('@/views/Interval.vue'),
+        meta: { requiresAdmin: true }
+
+      },
     ]
   }
 ]
